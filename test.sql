@@ -11,80 +11,134 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping data for table test.admin: ~0 rows (approximately)
-/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 
--- Dumping data for table test.administrator: ~1 rows (approximately)
-/*!40000 ALTER TABLE `administrator` DISABLE KEYS */;
-INSERT INTO `administrator` (`sno`, `name`, `password`) VALUES
-	(1, 'Afzal', 'afzal');
-/*!40000 ALTER TABLE `administrator` ENABLE KEYS */;
+-- Dumping database structure for test
+CREATE DATABASE IF NOT EXISTS `test` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `test`;
 
--- Dumping data for table test.batch2003: ~7 rows (approximately)
-/*!40000 ALTER TABLE `batch2003` DISABLE KEYS */;
-INSERT INTO `batch2003` (`En_no`, `Name`, `Discipline`, `Fathers_Name`, `Description`, `Semester`, `Image`) VALUES
-	('01', 'Ram Singh', 'Computer Science Engineering', 'Manoj Singh', _binary 0x546869732069732074657374696E672042792061667A616C2E, 'First', 'Images/01.jpg'),
-	('02', 'Shyam kumar', 'Computer Science Engineering', 'R  Kumar', _binary 0x546869732069732054657374696E672042792061667A616C, 'Fourth', 'Images/02.jpg'),
-	('03', 'Anjali Sharma', 'Information Technology', 'M Sharma', _binary 0x546869732069732054657374696E672042792061667A616C, 'Sixth', 'Images/03.jpg'),
-	('05', 'Mayur', 'Information Technology', 'xyz', _binary 0x746869732069732074657374696E67, 'First', 'Images/05.jpg'),
-	('07', 'Ayush', 'Civil Engineering', 'xyz', _binary 0x746873692069732074657374696E672062792061667A616C, 'Fourth', 'Images/07.jpg'),
-	('10', 'xyz', 'Information Technology', 'rte', _binary 0x686A686A686A, 'First', 'Images/10.jpg'),
-	('70', 'Afzal ansari', 'Information Technology', 'M I Ansari', _binary 0x746869732069732074657374, 'First', 'Images/70.jpg');
-/*!40000 ALTER TABLE `batch2003` ENABLE KEYS */;
+-- Dumping structure for table test.admin
+CREATE TABLE IF NOT EXISTS `admin` (
+  `USER_ID` varchar(100) DEFAULT NULL,
+  `PASSWORD` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table test.contact: ~3 rows (approximately)
-/*!40000 ALTER TABLE `contact` DISABLE KEYS */;
-INSERT INTO `contact` (`first_name`, `last_name`, `emailid`, `subject`, `msg`) VALUES
-	('Afzal', 'Ansari', 'afzalansari880@gmail.com', 'this is testing', _binary 0x61736161736461),
-	('ayush', 'sharma', 'ayush@gmail.com', 'regarding website efficiency', _binary 0x74686973206973206E6F74206120676F6F642077656273697465),
-	('ravina', 'chaudhary', 'ravina@gmail.com', 'good', _binary 0x746869732069732074657374696E67);
-/*!40000 ALTER TABLE `contact` ENABLE KEYS */;
+-- Data exporting was unselected.
+-- Dumping structure for table test.administrator
+CREATE TABLE IF NOT EXISTS `administrator` (
+  `sno` int(11) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`sno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table test.details: ~5 rows (approximately)
-/*!40000 ALTER TABLE `details` DISABLE KEYS */;
-INSERT INTO `details` (`eno`, `name`, `branch`, `sem`, `sub1`, `sub2`, `sub3`, `sub4`, `sub5`, `sub6`, `a1`, `a2`, `a3`, `a4`, `a5`, `a6`) VALUES
-	(1, 'Ram Singh', 'Computer Science Engineering', 'First', 88, 87, 86, 85, 84, 83, 11, 10, 21, 11, 11, 11),
-	(4, 'sonal', 'Electronics and Communications Engineering', 'Second', 78, 65, 76, 88, 89, 89, 12, 11, 12, 11, 11, 11),
-	(5, 'Mayur', 'Information Technology', 'First', 88, 87, 86, 85, 84, 83, 12, 9, 11, 12, 9, 11),
-	(7, 'ayush', 'Civil Engineering', 'First', 88, 78, 76, 88, 89, 91, 12, 12, 11, 10, 9, 8),
-	(9, 'ankit', 'Computer Science Engineering', 'Third', 78, 77, 65, 78, 78, 78, 12, 12, 12, 12, 12, 12);
-/*!40000 ALTER TABLE `details` ENABLE KEYS */;
+-- Data exporting was unselected.
+-- Dumping structure for table test.batch2003
+CREATE TABLE IF NOT EXISTS `batch2003` (
+  `En_no` varchar(10) NOT NULL,
+  `Name` varchar(30) DEFAULT NULL,
+  `Discipline` varchar(30) DEFAULT NULL,
+  `Fathers_Name` varchar(30) DEFAULT NULL,
+  `Description` longblob,
+  `Semester` varchar(50) DEFAULT NULL,
+  `Image` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`En_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table test.employee: ~0 rows (approximately)
-/*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-/*!40000 ALTER TABLE `employee` ENABLE KEYS */;
+-- Data exporting was unselected.
+-- Dumping structure for table test.contact
+CREATE TABLE IF NOT EXISTS `contact` (
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `emailid` varchar(50) NOT NULL,
+  `subject` varchar(100) DEFAULT NULL,
+  `msg` longblob,
+  PRIMARY KEY (`emailid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table test.join1: ~6 rows (approximately)
-/*!40000 ALTER TABLE `join1` DISABLE KEYS */;
-INSERT INTO `join1` (`eno`, `name`) VALUES
-	(70, 'afzalansari880@gmail.com'),
-	(1, 'ram@gmail.com'),
-	(4, 'sonal@gmail.com'),
-	(9, 'ankit@gmail.com'),
-	(5, 'mayur@gmail.com'),
-	(7, 'ayush@gmail.com');
-/*!40000 ALTER TABLE `join1` ENABLE KEYS */;
+-- Data exporting was unselected.
+-- Dumping structure for table test.details
+CREATE TABLE IF NOT EXISTS `details` (
+  `eno` int(11) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `branch` varchar(50) DEFAULT NULL,
+  `sem` varchar(50) DEFAULT NULL,
+  `sub1` float DEFAULT NULL,
+  `sub2` float DEFAULT NULL,
+  `sub3` float DEFAULT NULL,
+  `sub4` float DEFAULT NULL,
+  `sub5` float DEFAULT NULL,
+  `sub6` float DEFAULT NULL,
+  `a1` int(11) DEFAULT NULL,
+  `a2` int(11) DEFAULT NULL,
+  `a3` int(11) DEFAULT NULL,
+  `a4` int(11) DEFAULT NULL,
+  `a5` int(11) DEFAULT NULL,
+  `a6` int(11) DEFAULT NULL,
+  PRIMARY KEY (`eno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table test.signup: ~6 rows (approximately)
-/*!40000 ALTER TABLE `signup` DISABLE KEYS */;
-INSERT INTO `signup` (`name`, `gender`, `fathersname`, `mobile`, `email`, `pass`) VALUES
-	('afzal', 'male', 'Ansari', '98765', 'afzalansari880@gmail.com', '123'),
-	('ankit', 'male', 'asd', '4567', 'ankit@gmail.com', '123'),
-	('ayush', 'male', 'xyz', '98765', 'ayush@gmail.com', '123'),
-	('Mayur', 'male', 'xyz', '98765', 'mayur@gmail.com', '123'),
-	('Ram Singh', 'male', 'Manoj Singh', '98765', 'ram@gmail.com', '123'),
-	('Sonal', 'female', 'T Singh', '43566', 'sonal@gmail.com', '123');
-/*!40000 ALTER TABLE `signup` ENABLE KEYS */;
+-- Data exporting was unselected.
+-- Dumping structure for table test.employee
+CREATE TABLE IF NOT EXISTS `employee` (
+  `EMP_ID` varchar(100) DEFAULT NULL,
+  `F_NAME` varchar(50) DEFAULT NULL,
+  `L_NAME` varchar(50) DEFAULT NULL,
+  `GEN` varchar(10) DEFAULT NULL,
+  `ADDR` varchar(100) DEFAULT NULL,
+  `PHONE` varchar(20) DEFAULT NULL,
+  `DOB` date DEFAULT NULL,
+  `DOJ` date DEFAULT NULL,
+  `EXPR` varchar(50) DEFAULT NULL,
+  `LICENSE` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table test.user: ~0 rows (approximately)
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+-- Data exporting was unselected.
+-- Dumping structure for table test.join1
+CREATE TABLE IF NOT EXISTS `join1` (
+  `eno` int(11) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table test.userbooking: ~0 rows (approximately)
-/*!40000 ALTER TABLE `userbooking` DISABLE KEYS */;
-/*!40000 ALTER TABLE `userbooking` ENABLE KEYS */;
+-- Data exporting was unselected.
+-- Dumping structure for table test.signup
+CREATE TABLE IF NOT EXISTS `signup` (
+  `name` varchar(50) DEFAULT NULL,
+  `gender` varchar(50) DEFAULT NULL,
+  `fathersname` varchar(50) DEFAULT NULL,
+  `mobile` varchar(50) DEFAULT NULL,
+  `email` varchar(50) NOT NULL,
+  `pass` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- Data exporting was unselected.
+-- Dumping structure for table test.user
+CREATE TABLE IF NOT EXISTS `user` (
+  `USER_ID` varchar(100) DEFAULT NULL,
+  `F_NAME` varchar(50) DEFAULT NULL,
+  `L_NAME` varchar(50) DEFAULT NULL,
+  `ADDR` varchar(100) DEFAULT NULL,
+  `EMAIL` varchar(50) DEFAULT NULL,
+  `PHONE` varchar(20) DEFAULT NULL,
+  `PASSWORD` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+-- Dumping structure for table test.userbooking
+CREATE TABLE IF NOT EXISTS `userbooking` (
+  `USER_ID` varchar(100) DEFAULT NULL,
+  `NAME` varchar(100) DEFAULT NULL,
+  `PIC_ADD` varchar(100) DEFAULT NULL,
+  `PHONE` varchar(20) DEFAULT NULL,
+  `BOOK_DATE` date DEFAULT NULL,
+  `CAR` varchar(30) DEFAULT NULL,
+  `FROM_ADD` varchar(50) DEFAULT NULL,
+  `TO_ADD` varchar(50) DEFAULT NULL,
+  `J_DATE` date DEFAULT NULL,
+  `J_TIME` time DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
